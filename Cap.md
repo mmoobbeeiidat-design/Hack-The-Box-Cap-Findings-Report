@@ -115,12 +115,12 @@ The initial Nmap scan acted as the foundational blueprint for the entire engagem
   ```
 
   ![IDOR Enumeration Script Output](images/idor_enum.png)  
-  *Caption: Output of the custom enumeration script showing valid IDOR endpoints (0-4) returning HTTP 200 OK.*
+  *Output of the custom enumeration script showing valid IDOR endpoints (0-4) returning HTTP 200 OK.*
 
   Navigating to `http://10.129.45.111/data/0` triggered an automatic download of a PCAP file named `capture.pcap`. This file was analyzed using Wireshark. By applying the "Follow TCP Stream" filter on the FTP traffic within the capture, cleartext credentials were immediately exposed:
 
   ![Wireshark FTP Credential Extraction](images/wireshark_ftp.png)  
-  *Caption: Wireshark "Follow TCP Stream" view revealing the FTP authentication sequence containing `USER nathan` and `PASS Buck3tH4TF0RM3!`.*
+  *Wireshark "Follow TCP Stream" view revealing the FTP authentication sequence containing `USER nathan` and `PASS Buck3tH4TF0RM3!`.*
 
 ---
 
@@ -141,7 +141,7 @@ The initial Nmap scan acted as the foundational blueprint for the entire engagem
   ```
 
   ![getcap Python Capability](images/getcap_python.png)  
-  *Caption: Output of the `getcap` command confirming the `cap_setuid+ep` flag is set on `/usr/bin/python3.8`.*
+  *Output of the `getcap` command confirming the `cap_setuid+ep` flag is set on `/usr/bin/python3.8`.*
 
   To exploit this misconfiguration, Python's built-in `os.setuid()` function was leveraged to set the current process UID to `0` (root) and spawn an interactive root shell:
 
@@ -152,7 +152,7 @@ The initial Nmap scan acted as the foundational blueprint for the entire engagem
   ```
 
   ![Python Setuid Exploitation](images/root_shell.png)  
-  *Caption: Successful privilege escalation demonstrating the transition from `nathan` to `root` using the Python capability exploit.*
+  *Successful privilege escalation demonstrating the transition from `nathan` to `root` using the Python capability exploit.*
 
 ---
 
@@ -172,10 +172,10 @@ The initial Nmap scan acted as the foundational blueprint for the entire engagem
 | **Root Flag** | `97e3503a73fb9562aa302cdfbabb072e` |
 
 ![User Flag Confirmation](images/user_flag.png)  
-*Caption: Confirmation of the user flag extraction from `/home/nathan/user.txt` after logging in via SSH.*
+*Confirmation of the user flag extraction from `/home/nathan/user.txt` after logging in via SSH.*
 
 ![Root Flag Confirmation](images/root_flag.png)  
-*Caption: Confirmation of the root flag extraction from `/root/root.txt` after privilege escalation.*
+*Confirmation of the root flag extraction from `/root/root.txt` after privilege escalation.*
 
 ---
 
