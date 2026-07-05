@@ -31,7 +31,7 @@ During the security assessment of the target host `10.129.45.111` (HTB_Cap) cond
 
 ## Attack Chains Detected
 
-- **Reconnaissance (Nmap)** ➔ **Web Dashboard Enumeration** ➔ **IDOR Discovery & Automation** ➔ **PCAP Download & Credential Extraction** ➔ **SSH Initial Access (User Flag)** ➔ **Capability Exploitation** ➔ **Root Flag Extraction** ✅ [Completed]
+- **Reconnaissance (Nmap)** ➔ **Web Dashboard Enumeration** ➔ **IDOR Discovery & Automation** ➔ **PCAP Download & Credential Extraction** ➔ **SSH Initial Access (User Flag)** ➔ **Capability Exploitation** ➔ **Root Flag Extraction** [Completed]
 
 ---
 
